@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTABOYY // Valorant Digital Art & Wallpapers</title>
+  <!-- Google Fonts for Valorant Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0f1923;
+      --bg-card: #172430;
+      --accent-red: #ff4655;
+      --accent-cyan: #00f0ff;
+      --text-main: #ece8e1;
+      --text-muted: #8b97a5;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --font-heading: 'Teko', sans-serif;
+      --font-body: 'Rajdhani', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    /* --- Navigation --- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 25, 35, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-logo span {
+      color: var(--accent-red);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-red);
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      padding: 160px 2rem 80px 2rem;
+      text-align: center;
+      background: radial-gradient(circle at top center, rgba(255, 70, 85, 0.15) 0%, rgba(15, 25, 35, 1) 70%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255, 70, 85, 0.2);
+      color: var(--accent-red);
+      padding: 0.3rem 1rem;
+      border: 1px solid var(--accent-red);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 2rem auto;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-red);
+      color: #fff;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    }
+
+    .btn-primary:hover {
+      background-color: #ff2b3d;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+    }
+
+    /* --- Gallery Section --- */
+    .section {
+      padding: 80px 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .art-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-red);
+    }
+
+    .art-card img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .art-card-body {
+      padding: 1.5rem;
+    }
+
+    .art-card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .art-card-body p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .download-btn {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .download-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Buy Me a Coffee / Support Banner --- */
+    .support-box {
+      background: linear-gradient(135deg, rgba(23, 36, 48, 0.9), rgba(255, 70, 85, 0.15));
+      border: 1px solid var(--accent-red);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 40px auto;
+      max-width: 900px;
+    }
+
+    .support-box h3 {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .support-box p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    /* --- Commission Options --- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent-red);
+      box-shadow: 0 0 20px rgba(255, 70, 85, 0.2);
+    }
+
+    .price-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-red);
+      color: #fff;
+      padding: 2px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .price-card h4 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      color: var(--accent-red);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card ul {
+      list-style: none;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .price-card ul li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .price-card ul li::before {
+      content: '✓';
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    /* --- Booking Form --- */
+    .form-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-red);
+    }
+
+    /* --- Terms Accordion --- */
+    .terms-box {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+    }
+
+    .terms-box h5 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      color: var(--accent-red);
+      margin-top: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .terms-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    /* --- Footer --- */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #090f15;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--text-main);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-red);
+    }
+
+    .disclaimer {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero h1 { font-size: 3rem; }
+      .section-title { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <a href="#" class="brand-logo">ASTA<span>BOYY</span></a>
+    <nav>
+      <a href="#portfolio">Gallery</a>
+      <a href="#support">Support</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#book">Book Slot</a>
+      <a href="#terms">Terms</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-tag">Digital Illustrator & Animator</div>
+    <h1>Valorant Agent Art & 4K Wallpapers</h1>
+    <p>High-resolution fan illustrations, mobile & desktop setups, and custom commissions created for the Valorant community by <strong>astaboyy</strong> (`@ig_astaboyy`).</p>
+    <div class="cta-group">
+      <a href="#portfolio" class="btn btn-primary">Free Wallpapers</a>
+      <a href="#commissions" class="btn btn-secondary">Request Custom Art</a>
+    </div>
+  </section>
+
+  <!-- Portfolio / Wallpapers Section -->
+  <section id="portfolio" class="section">
+    <h2 class="section-title">Wallpaper Gallery</h2>
+    <p class="section-subtitle">Click to preview and download full-resolution PNGs for desktop and mobile.</p>
+    
+    <div class="gallery-grid">
+      <!-- Art Card 1 -->
+      <article class="art-card">
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="Jett Valorant Artwork">
+        <div class="art-card-body">
+          <h3>Jett // Tailwind Radiance</h3>
+          <p>4K Mobile & Desktop Dual Package</p>
+          <a href="#" class="download-btn">⬇ Download High-Res PNG</a>
+        </div>
+      </article>
+
+      <!-- Art Card 2 -->
+      <article class="art-card">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80" alt="Reyna Valorant Artwork">
+        <div class="art-card-body">
+          <h3>Reyna // Empress Aura</h3>
+          <p>Full 3840x2160 Desktop Render</p>
+          <a href="#" class="download-btn">⬇ Download High-Res PNG</a>
+        </div>
+      </article>
+
+      <!-- Art Card 3 -->
+      <article class="art-card">
+        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=800&q=80" alt="Chamber Valorant Artwork">
+        <div class="art-card-body">
+          <h3>Chamber // Tour De Force</h3>
+          <p>1080x1920 Mobile OLED Wallpaper</p>
+          <a href="#" class="download-btn">⬇ Download High-Res PNG</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Buy Me A Coffee Section -->
+  <section id="support" class="section">
+    <div class="support-box">
+      <h3>Fuel the Next Agent Artwork ☕</h3>
+      <p>All wallpapers are 100% free for the community. If my art has spiced up your desktop or phone, consider buying me a coffee to support gear upgrades and software tools!</p>
+      <a href="https://ko-fi.com" target="_blank" class="btn btn-primary">☕ Buy Me A Coffee ($5)</a>
+    </div>
+  </section>
+
+  <!-- Commission Pricing Tiers -->
+  <section id="commissions" class="section">
+    <h2 class="section-title">Commission Rates</h2>
+    <p class="section-subtitle">Get your main agent drawn with your custom gamer tag or handle.</p>
+
+    <div class="pricing-grid">
+      <!-- Tier 1 -->
+      <div class="price-card">
+        <h4>Agent Avatar</h4>
+        <div class="price-amount">$40</div>
+        <ul>
+          <li>Full-color bust portrait</li>
+          <li>Custom gamer tag & background</li>
+          <li>Optimized for Discord, IG & Twitch</li>
+          <li>5 business days delivery</li>
+        </ul>
+        <a href="#book" class="btn btn-secondary">Select Tier</a>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="price-card featured">
+        <h4>4K Full-Body</h4>
+        <div class="price-amount">$80</div>
+        <ul>
+          <li>Full-body agent rendering</li>
+          <li>Custom pose, skin, & abilities</li>
+          <li>4K Desktop or Mobile Wallpaper</li>
+          <li>Sketch approval + 2 revisions</li>
+        </ul>
+        <a href="#book" class="btn btn-primary">Select Tier</a>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="price-card">
+        <h4>Duo / Clutch Scene</h4>
+        <div class="price-amount">$120</div>
+        <ul>
+          <li>2 agents in dynamic action pose</li>
+          <li>Full cinematic background</li>
+          <li>High-res ultra-wide render</li>
+          <li>Priority turnaround (5-7 days)</li>
+        </ul>
+        <a href="#book" class="btn btn-secondary">Select Tier</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking / Intake Form -->
+  <section id="book" class="section">
+    <h2 class="section-title">Request a Commission</h2>
+    <p class="section-subtitle">Fill out your details below to lock in your slot.</p>
+
+    <div class="form-container">
+      <form id="commissionForm">
+        <div class="form-group">
+          <label for="igHandle">Instagram Handle / Contact</label>
+          <input type="text" id="igHandle" class="form-control" placeholder="@yourname" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tierSelect">Commission Tier</label>
+          <select id="tierSelect" class="form-control" required>
+            <option value="Avatar ($40)">Tier 1 — Agent Avatar ($40)</option>
+            <option value="Wallpaper ($80)" selected>Tier 2 — Full-Body 4K Wallpaper ($80)</option>
+            <option value="Duo ($120)">Tier 3 — Duo / Clutch Scene ($120)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Agent, Skin & Gamer Tag Details</label>
+          <textarea id="details" class="form-control" rows="4" placeholder="e.g. Jett with Prime skin, holding Operator, gamer tag 'ASTABOYY' at the bottom right corner" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Request via Instagram DM</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Terms of Service Accordion -->
+  <section id="terms" class="section">
+    <h2 class="section-title">Commission Terms</h2>
+    <div class="terms-box">
+      <h5>1. Payment & Booking</h5>
+      <p>Orders under $50 require 100% upfront payment. Orders over $50 require a 50% non-refundable deposit before sketching begins.</p>
+
+      <h5>2. Process & Revisions</h5>
+      <p>Clients receive a rough sketch preview for pose/composition approval. Up to two minor revisions are included during the sketch phase.</p>
+
+      <h5>3. Personal Use & Intellectual Property</h5>
+      <p>Commissions cover personal use only (avatars, personal wallpapers, non-monetized streaming headers). Rights to game characters remain with Riot Games.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="https://instagram.com/ig_astaboyy" target="_blank">Instagram (@ig_astaboyy)</a>
+      <a href="https://youtube.com/@AstaBoyy-q1i" target="_blank">YouTube</a>
+      <a href="https://payhip.com" target="_blank">Payhip</a>
+    </div>
+    <div class="disclaimer">
+      <p>This portfolio website is created under Riot Games' Fan Content Policy ("Legal Jibber Jabber") using original fan art. It is not endorsed, sponsored, or affiliated with Riot Games or Valorant.</p>
+      <p style="margin-top: 0.5rem; color: #55606e;">© 2026 astaboyy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive Form Script -->
+  <script>
+    document.getElementById('commissionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const handle = document.getElementById('igHandle').value;
+      const tier = document.getElementById('tierSelect').value;
+      const details = document.getElementById('details').value;
+
+      // Construct Instagram DM / Redirect Message
+      const message = `Hey astaboyy! I'd like to book a commission:%0A- Handle: ${handle}%0A- Tier: ${tier}%0A- Details: ${details}`;
+      
+      // Copy to clipboard or alert user
+      alert('Thank you! Redirecting to Instagram to send your project details.');
+      window.open(`https://www.instagram.com/ig_astaboyy/`, '_blank');
+    });
+  </script>
+</body>
+</html>
